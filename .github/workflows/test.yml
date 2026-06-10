@@ -25,7 +25,8 @@ jobs:
           let md = '## ' + (passed === total ? '✅' : '❌') + ' ' + passed + ' / ' + total + ' tests passed\n\n';
           md += '| Result | Test |\n|--------|------|\n';
           r.testResults.forEach(suite => {
-            suite.testResults.forEach(t => {
+            const tests = suite.assertionResults || [];
+            tests.forEach(t => {
               const icon = t.status === 'passed' ? '✅' : '❌';
               md += '| ' + icon + ' | ' + t.fullName + ' |\n';
             });
