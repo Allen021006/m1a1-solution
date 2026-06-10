@@ -12,5 +12,5 @@ jobs:
           node-version: '20'
       - run: npm install
         working-directory: ./
-      - run: npm test
+      - run: npm test -- --reporters=default --reporters=jest-summary-reporter
         working-directory: ./
